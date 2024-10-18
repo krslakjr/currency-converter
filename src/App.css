@@ -3,9 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Cairo');
 
-/* Glavni stilovi za aplikaciju */
+
 .App {
-    height: 100vh;
+    min-height: 100vh; 
     width: 100%;
     display: flex;
     align-items: center;
@@ -14,11 +14,10 @@
     margin: 0; 
     padding: 0; 
     justify-content: center; 
-    background: radial-gradient(ellipse at bottom, #000000 0%, #0c0d13 100%);
-    background-image: url('./images/pixelcut-export\ \(1\).jpeg'); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image: url('./images/pixelcut-export (1).jpeg'), radial-gradient(ellipse at bottom, #000000 0%, #0c0d13 100%); 
+    background-size: cover, cover; 
+    background-repeat: no-repeat, no-repeat; 
+    background-position: center, top; 
 }
 
 .heading {
@@ -54,6 +53,7 @@
     align-items: center; 
     flex-wrap: wrap; 
     gap: 10px;
+    margin-left: 20px;
     margin-bottom: 20px;
 }
 
@@ -74,7 +74,7 @@
 }
 
 input {
-    width: 100%;  /* Dinamična širina */
+    width: 100%;  
     max-width: 220px; 
     height: 50px; 
     padding-left: 20px;
@@ -105,7 +105,7 @@ input {
 }
 
 .custom-dropdown, .custom-dropdown2 {
-    width: 100%;  /* Dinamična širina */
+    width: 100%; 
     max-width: 220px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -172,7 +172,7 @@ input {
 
 .result {
     box-sizing: border-box;
-    width: 100%;  /* Dinamična širina */
+    width: 100%; 
     max-width: 800px;
     padding-left: 30px;
 }
@@ -207,15 +207,16 @@ button:hover {
     text-decoration: none;
 }
 
-/* Skaliranje za mobilne uređaje */
+
 @media (max-width: 768px) {
     .heading {
-        font-size: 2rem; /* Manja veličina teksta za mobilne */
+        font-size: 2rem; 
     }
 
     .container {
         width: 80%;
         padding: 20px;
+        margin-left: 20px;
     }
 
     button {
@@ -224,11 +225,19 @@ button:hover {
     }
 
     .result {
-        width: 100%; /* Dinamična širina za rezultat */
+        width: 100%; 
     }
+    .live-rates {
+        margin: 10px; 
+        padding: 15px;
+        width: 100%; 
+        max-width: 750px; 
+        box-sizing: border-box; 
+    }
+
 }
 
-/* Dodatno prilagođavanje za manje ekrane */
+
 @media (max-width: 480px) {
     .heading {
         font-size: 1.5rem;
@@ -242,6 +251,7 @@ button:hover {
         padding: 8px 20px;
         font-size: 0.8rem;
     }
+    
 }
 
 p {
@@ -249,3 +259,58 @@ p {
     font-family: Monospace;
     text-align: center;
 }
+
+.converter {
+    position: relative;
+    z-index: 10;
+}
+
+.live-rates {
+    background-color: #f9f9f9; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    padding: 20px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    margin: 20px 10px; /* Gornja margina, leva i desna margina */
+    transition: background-color 0.3s ease; 
+    width: calc(100% - 20px); /* Oduzmi margine od ukupne širine */
+    max-width: 750px; 
+
+}
+
+.live-rates h2 {
+    font-size: 24px; 
+    color: #7e6f1e; 
+    margin-bottom: 15px; 
+    text-align: center; 
+}
+
+.live-rates ul {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+.live-rates li {
+    font-size: 18px; 
+    color: #555; 
+    padding: 8px; 
+    border-bottom: 1px solid #eee; 
+    transition: background-color 0.3s ease; 
+}
+
+.live-rates li:hover {
+    background-color: #f1f1f1;
+}
+
+.live-rates li:nth-child(3n + 1){
+    background-color: #ffeb80;
+} /* 1, 4, 7, ... */
+.live-rates li:nth-child(3n) { /* 2, 5, 8, ... */
+    background-color: #806C00;
+    color: black; /* Boja za 1. i 2. */
+}
+
+.live-rates li:nth-child(3n+2) { /* 3, 6, 9, ... */
+    background-color: #ffd700; /* Boja za 3. */
+}
+
